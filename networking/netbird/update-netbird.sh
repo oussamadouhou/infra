@@ -87,7 +87,7 @@ main() {
 		sleep 2
 
 		log "Trying to get latest binary"
-		curl -fsSLO https://pkgs.netbird.io/install.sh | bash
+		curl -fsSL https://pkgs.netbird.io/install.sh | bash
 
 		service_action start netbird
 
