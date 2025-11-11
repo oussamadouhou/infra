@@ -85,7 +85,7 @@ main() {
 
 		service_action stop netbird
 
-		curl -fsSLO https://pkgs.netbird.io/install.sh | sudo bash
+		curl -fsSLO https://pkgs.netbird.io/install.sh | bash
 
 		service_action start netbird
 
