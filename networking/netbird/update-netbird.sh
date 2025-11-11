@@ -4,7 +4,7 @@ set -euo pipefail
 #source "$(dirname "$0")/../utils/log.sh"
 #source "$(dirname "$0")/../utils/check_root.sh"
 
-log "=== [$(date)] Start NetBird update ==="
+echo "=== [$(date)] Start NetBird update ==="
 
 curl -fsSL https://pkgs.netbird.io/install.sh | bash
 systemctl restart netbird
