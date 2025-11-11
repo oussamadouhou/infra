@@ -74,8 +74,7 @@ wait_for_service() {
 main() {
 	detect_init_system
 
-	LATEST_VERSION=$(curl -s https://api.github.com/repos/netbirdio/netbird/releases/latest |
-		grep -oE '"tag_name": "\K.*?(?=")' | sed 's/^v//')
+	LATEST_VERSION=$(curl -s https://api.github.com/repos/netbirdio/netbird/releases/latest | grep -oE '"tag_name": "[^"]+"' | cut -d'"' -f4 | sed 's/^v//')
 	log "Latest Netbird version: $LATEST_VERSION"
 
 	INSTALLED_VERSION=$(netbird version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
