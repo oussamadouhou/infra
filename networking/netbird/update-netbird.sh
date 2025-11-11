@@ -93,8 +93,6 @@ main() {
 
 		log "Netbird updated to $LATEST_VERSION"
 
-		service_action restart netbird
-		wait_for_service netbird
 	else
 		log "Netbird is already up to date."
 	fi
