@@ -86,8 +86,12 @@ main() {
 		service_action stop netbird
 		sleep 2
 
-		log "Trying to get latest binary"
-		curl -fsSL https://pkgs.netbird.io/install.sh | bash
+		log "Running Netbird installer script from pkgs.netbird.io"
+		curl -fsSL https://pkgs.netbird.io/install.sh | bash >>"$LOGFILE" 2>&1
+		if [ $? -ne 0 ]; then
+			log "⚠️ Netbird install script failed. See log."
+			exit 1
+		fi
 
 		service_action start netbird
 
