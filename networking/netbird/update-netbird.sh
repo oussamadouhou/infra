@@ -78,7 +78,7 @@ main() {
 		grep -Po '"tag_name": "\K.*?(?=")' | sed 's/^v//')
 	log "Latest Netbird version: $LATEST_VERSION"
 
-	INSTALLED_VERSION=$(netbird version 2>/dev/null | awk '{print $2}' || echo "")
+	INSTALLED_VERSION=$(netbird version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 	log "Installed Netbird version: ${INSTALLED_VERSION:-not installed}"
 
 	if [ "$INSTALLED_VERSION" != "$LATEST_VERSION" ]; then
