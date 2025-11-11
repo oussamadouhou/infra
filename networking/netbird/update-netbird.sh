@@ -84,10 +84,13 @@ main() {
 	if [ "$INSTALLED_VERSION" != "$LATEST_VERSION" ]; then
 		log "Updating Netbird to $LATEST_VERSION..."
 
-		TMPFILE=$(mktemp)
-		curl -fsSL "https://github.com/netbirdio/netbird/releases/download/v$LATEST_VERSION/netbird-$LATEST_VERSION-linux-amd64" -o "$TMPFILE"
-		chmod +x "$TMPFILE"
-		sudo mv "$TMPFILE" /usr/local/bin/netbird
+		service_action stop netbird
+
+		curl -fsSLO https://pkgs.netbird.io/install.sh | sudo bash
+
+		service_action start netbird
+
+		wait_for_service netbird
 
 		log "Netbird updated to $LATEST_VERSION"
 
