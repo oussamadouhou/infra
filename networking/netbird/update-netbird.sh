@@ -84,7 +84,9 @@ main() {
 		log "Updating Netbird to $LATEST_VERSION..."
 
 		service_action stop netbird
+		sleep 2
 
+		log "Trying to get latest binary"
 		curl -fsSLO https://pkgs.netbird.io/install.sh | bash
 
 		service_action start netbird
