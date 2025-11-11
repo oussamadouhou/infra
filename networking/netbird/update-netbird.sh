@@ -10,10 +10,10 @@ curl -fsSL https://pkgs.netbird.io/install.sh | bash
 systemctl restart netbird
 
 if systemctl is-active --quiet netbird; then
-	log "✅ NetBird has been started."
+	echo "✅ NetBird has been started."
 else
-	log "❌ NetBird did not start. Please check logs."
+	echo "❌ Bird did not start. Please check logs."
 	exit
 fi
 
-log "=== Update completed ==="
+echo "=== Update completed ==="
