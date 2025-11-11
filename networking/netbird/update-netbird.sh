@@ -97,6 +97,7 @@ main() {
 
 		wait_for_service netbird
 
+		INSTALLED_VERSION=$(netbird version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
 		log "Netbird updated to $LATEST_VERSION"
 
 	else
