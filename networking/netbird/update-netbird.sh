@@ -75,7 +75,7 @@ main() {
 	detect_init_system
 
 	LATEST_VERSION=$(curl -s https://api.github.com/repos/netbirdio/netbird/releases/latest |
-		grep -Po '"tag_name": "\K.*?(?=")' | sed 's/^v//')
+		grep -oE '"tag_name": "\K.*?(?=")' | sed 's/^v//')
 	log "Latest Netbird version: $LATEST_VERSION"
 
 	INSTALLED_VERSION=$(netbird version 2>/dev/null | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
