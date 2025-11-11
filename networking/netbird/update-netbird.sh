@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-source "$(dirname "$0")/../utils/log.sh"
-source "$(dirname "$0")/../utils/check_root.sh"
+#source "$(dirname "$0")/../utils/log.sh"
+#source "$(dirname "$0")/../utils/check_root.sh"
 
 log "=== [$(date)] Start NetBird update ==="
 
